@@ -1,10 +1,11 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 let balance = 100000;
 let pinCode = 7787;
 let pin = await inquirer.prompt({
     name: "code",
     type: "number",
-    message: "Enter your Pin"
+    message: "Enter your Pin",
 });
 if (pin.code === pinCode) {
     console.log("welcome");
@@ -12,13 +13,13 @@ if (pin.code === pinCode) {
         name: "menu",
         type: "list",
         choices: ["withdraw", "check balance"],
-        message: "Choose one option"
+        message: "Choose one option",
     });
     if (opretion.menu === "withdraw") {
         let amount = await inquirer.prompt({
             name: "cash",
             type: "number",
-            message: "Enter your Amount"
+            message: "Enter your Amount",
         });
         if (amount.cash < balance) {
             balance -= amount.cash;
